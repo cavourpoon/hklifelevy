@@ -1,0 +1,28 @@
+[
+  {
+    "abv": "S",
+    "en": "Single Premium",
+    "count": 0
+  },
+  {
+    "abv": "A",
+    "en": "Annually",
+    "zh": "年繳",
+    "count": 1
+  },
+  {
+    "abv": "H",
+    "en": "Semi-annually",
+    "count": 2
+  },
+  {
+    "abv": "Q",
+    "en": "Quarterly",
+    "count": 4
+  },
+  {
+    "abv": "M",
+    "en": "Monthly",
+    "count": 12
+  }
+]
