@@ -10,7 +10,7 @@ def get_levy_parameter():
         body = request.get_json()
         quotationdate = body['quotationdate']
     try:
-        result=levy.get_levy_parameter(quotationdate)
+        result = levy.get_levy_parameter(quotationdate)
         response = {
             "Result": result,
             "Error": None
@@ -21,16 +21,22 @@ def get_levy_parameter():
             "Error": str(e)
         }
     return response
+
+
+@app.route('/testserver', methods=['GET'])
+def hello_world():
+    return "Hello World from Doceker"
+
 
 @app.route('/quotelevy', methods=['POST'])
 def quote_levy():
     if request.method == 'POST':
         body = request.get_json()
-        modalpremium=body['modalpremium']
-        currency=body['currency']
+        modalpremium = body['modalpremium']
+        currency = body['currency']
         quotationdate = body['quotationdate']
     try:
-        result=levy.quote_levy(modalpremium,currency,quotationdate)
+        result = levy.quote_levy(modalpremium, currency, quotationdate)
         response = {
             "Result": result,
             "Error": None
@@ -42,17 +48,18 @@ def quote_levy():
         }
     return response
 
+
 @app.route('/levyschedule', methods=['POST'])
 def levy_schedule():
     if request.method == 'POST':
         body = request.get_json()
-        modalpremium=body['modalpremium']
+        modalpremium = body['modalpremium']
         paymentterm = body['paymentterm']
         mode = body['mode']
-        currency=body['currency']
+        currency = body['currency']
         startdate = body['startdate']
     try:
-        result=levy.levy_schedule(modalpremium, paymentterm, mode, currency, startdate)
+        result = levy.levy_schedule(modalpremium, paymentterm, mode, currency, startdate)
         response = {
             "Result": result,
             "Error": None
@@ -63,6 +70,7 @@ def levy_schedule():
             "Error": str(e)
         }
     return response
+
 
 if __name__ == '__main__':
     app.run()
