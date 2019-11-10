@@ -3,6 +3,9 @@ import levy
 
 app = Flask(__name__)
 
+@app.route('/testserver', methods=['GET'])
+def helloworld():
+    return "Hello World from Docker"
 
 @app.route('/getlevyparameter', methods=['POST'])
 def get_levy_parameter():
