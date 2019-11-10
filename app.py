@@ -12,13 +12,11 @@ def get_levy_parameter():
     try:
         result=levy.get_levy_parameter(quotationdate)
         response = {
-            "HTTPStatusCode": "200",
             "Result": result,
             "Error": None
         }
     except Exception as e:
         response = {
-            "HTTPStatusCode": "500",
             "Result": None,
             "Error": str(e)
         }
@@ -34,13 +32,11 @@ def quote_levy():
     try:
         result=levy.quote_levy(modalpremium,currency,quotationdate)
         response = {
-            "HTTPStatusCode": "200",
             "Result": result,
             "Error": None
         }
     except Exception as e:
         response = {
-            "HTTPStatusCode": "500",
             "Result": None,
             "Error": str(e)
         }
@@ -58,13 +54,11 @@ def levy_schedule():
     try:
         result=levy.levy_schedule(modalpremium, paymentterm, mode, currency, startdate)
         response = {
-            "HTTPStatusCode": "200",
             "Result": result,
             "Error": None
         }
     except Exception as e:
         response = {
-            "HTTPStatusCode": "500",
             "Result": None,
             "Error": str(e)
         }

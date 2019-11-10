@@ -1,16 +1,12 @@
-FROM ubuntu:16.04
+FROM python:3
 
-RUN apt-get update -y && \
-    apt-get install -y python-pip python-dev
+LABEL maintainer="Cavour Poon <cavouriypoon@lionrockws.com>"
 
-COPY ./* /app/requirements.txt
+WORKDIR /usr/src/app
 
-WORKDIR /app
+COPY requirements.txt ./
+RUN pip install --no-cache-dir -r requirements.txt
 
-RUN pip install -r requirements.txt
+COPY . .
 
-COPY . /app
-
-ENTRYPOINT [ "python" ]
-
-CMD [ "app.py" ]
+CMD [ "python", "app.py" ]
